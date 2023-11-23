@@ -4,21 +4,29 @@
  */
 package view;
 
-import java.awt.Color;
+import controller.Dashboard_Controller;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
 
 /**
  *
  * @author MONTENEGRO
  */
 public class Dashboard_View extends javax.swing.JFrame {
+  
+  Dashboard_Controller controller_Dashboard = new Dashboard_Controller();
 
   /**
    * Creates new form Dashboard_View
    */
   public Dashboard_View() {
     initComponents();
-    jPanel_Formulario.setVisible(false);
-
+    controller_Dashboard.mostrarPanel(jPanel_Form, false);
+    initializeEventGroup();
+    
   }
 
   /**
@@ -33,7 +41,7 @@ public class Dashboard_View extends javax.swing.JFrame {
     jPanel2 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
     btn_Booking = new javax.swing.JButton();
-    jPanel_Formulario = new javax.swing.JPanel();
+    jPanel_Form = new javax.swing.JPanel();
     jPanel4 = new javax.swing.JPanel();
     jLabel2 = new javax.swing.JLabel();
     jR_btn_Banquet = new javax.swing.JRadioButton();
@@ -120,7 +128,7 @@ public class Dashboard_View extends javax.swing.JFrame {
 
     jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 570));
 
-    jPanel_Formulario.setBackground(new java.awt.Color(255, 255, 255));
+    jPanel_Form.setBackground(new java.awt.Color(255, 255, 255));
 
     jPanel4.setBackground(new java.awt.Color(255, 255, 255));
     jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Datos De La Reserva", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 0, 18), new java.awt.Color(130, 10, 11))); // NOI18N
@@ -382,23 +390,23 @@ public class Dashboard_View extends javax.swing.JFrame {
         .addContainerGap(34, Short.MAX_VALUE))
     );
 
-    javax.swing.GroupLayout jPanel_FormularioLayout = new javax.swing.GroupLayout(jPanel_Formulario);
-    jPanel_Formulario.setLayout(jPanel_FormularioLayout);
-    jPanel_FormularioLayout.setHorizontalGroup(
-      jPanel_FormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+    javax.swing.GroupLayout jPanel_FormLayout = new javax.swing.GroupLayout(jPanel_Form);
+    jPanel_Form.setLayout(jPanel_FormLayout);
+    jPanel_FormLayout.setHorizontalGroup(
+      jPanel_FormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
       .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
     );
-    jPanel_FormularioLayout.setVerticalGroup(
-      jPanel_FormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_FormularioLayout.createSequentialGroup()
+    jPanel_FormLayout.setVerticalGroup(
+      jPanel_FormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_FormLayout.createSequentialGroup()
         .addContainerGap()
         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
-    jPanel1.add(jPanel_Formulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 520, 570));
+    jPanel1.add(jPanel_Form, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 520, 570));
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
@@ -415,7 +423,7 @@ public class Dashboard_View extends javax.swing.JFrame {
   }// </editor-fold>//GEN-END:initComponents
 
   private void btn_BookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BookingActionPerformed
-    jPanel_Formulario.setVisible(true);
+    controller_Dashboard.mostrarPanel(jPanel_Form, true);
   }//GEN-LAST:event_btn_BookingActionPerformed
 
   private void btn_BookingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_BookingMouseEntered
@@ -430,15 +438,15 @@ public class Dashboard_View extends javax.swing.JFrame {
 
   private void jCB_NumberOfPeopleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB_NumberOfPeopleActionPerformed
     
-    
+
   }//GEN-LAST:event_jCB_NumberOfPeopleActionPerformed
 
   private void btn_ViewReservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ViewReservationActionPerformed
-   
+
   }//GEN-LAST:event_btn_ViewReservationActionPerformed
 
   private void btn_ActivateAlarmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ActivateAlarmActionPerformed
-   
+
   }//GEN-LAST:event_btn_ActivateAlarmActionPerformed
 
   /**
@@ -471,7 +479,7 @@ public class Dashboard_View extends javax.swing.JFrame {
   private javax.swing.JPanel jPanel2;
   private javax.swing.JPanel jPanel4;
   private javax.swing.JPanel jPanel5;
-  private javax.swing.JPanel jPanel_Formulario;
+  private javax.swing.JPanel jPanel_Form;
   private javax.swing.JRadioButton jR_btn_Banquet;
   private javax.swing.JRadioButton jR_btn_Congress;
   private javax.swing.JRadioButton jR_btn_Journey;
@@ -483,4 +491,58 @@ public class Dashboard_View extends javax.swing.JFrame {
   private javax.swing.JTextField txt_Phone;
   // End of variables declaration//GEN-END:variables
 
+  private void initializeEventGroup() {
+    ButtonGroup btnGroup_Events = new ButtonGroup();
+    btnGroup_Events.add(jR_btn_Banquet);
+    btnGroup_Events.add(jR_btn_Congress);
+    btnGroup_Events.add(jR_btn_Journey);
+    
+    addActionListener(jR_btn_Banquet, this::showBanquetElements);
+    addActionListener(jR_btn_Congress, this::showCongressElements);
+    addActionListener(jR_btn_Journey, e -> displayActions());
+  }
+  
+  private void displayActions() {
+    hideCommonElements();
+    jL_NumberOfDays.setVisible(false);
+    jCB_NumberOfDays.setVisible(false);
+  }
+  
+  private void addActionListener(AbstractButton button, ActionListener listener) {
+    button.addActionListener(listener);
+  }
+  
+  private void showBanquetElements(ActionEvent e) {
+    showCommonElements();
+  }
+  
+  private void showCommonElements() {
+    hideCommonElements();
+    //Show the table and the table number
+    jL_Table.setVisible(true);
+    jL_TableNumber.setVisible(true);
+
+    //Show table and table type
+    jL_TypeOftable.setVisible(true);
+    jR_btn_Rectangle.setVisible(true);
+    jR_btn_Round.setVisible(true);
+    
+  }
+  
+  private void hideCommonElements() {
+    //hide the table and the table number
+    jL_Table.setVisible(false);
+    jL_TableNumber.setVisible(false);
+
+    //hide table and table type
+    jL_TypeOftable.setVisible(false);
+    jR_btn_Rectangle.setVisible(false);
+    jR_btn_Round.setVisible(false);
+    
+  }
+  
+  private void showCongressElements(ActionEvent e) {
+    
+  }
+  
 }
