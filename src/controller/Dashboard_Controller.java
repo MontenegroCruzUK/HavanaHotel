@@ -1,13 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controller;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import view.Dashboard_View;
 
 /**
  *
  * @author MONTENEGRO
  */
 public class Dashboard_Controller {
-  
+
+  public void mostrarPanel(JPanel jPanel_Form, boolean show) {
+    jPanel_Form.setVisible(show);
+  }
+
 }
